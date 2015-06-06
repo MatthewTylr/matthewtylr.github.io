@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Bayesian Analysis of Traffic
-header-img: "traffic.jpg"
+header-img: "img/traffic.jpg"
 ---
 
 Interestingly enough, there has been a lot of study done in the field of traffic management and the underlying patterns that are intrinsic to this system. Though none of my family members find any of this interesting, I find it particularly rewarding to explore these systems. It provides us with a problem that is different than the status quo. I did this analysis for part of my group (which consisted of [Nicholas Yager](https://nicholasyager.com/), Thomas Hartvigsen, and myself) report for the UPSTAT 2015 data competition. Since the deadline for this has passed, I feel that it is appropriate to blog about what I found.
@@ -10,7 +10,9 @@ Interestingly enough, there has been a lot of study done in the field of traffic
 
 We were given data and asked to find unique patterns and provide suggestions [to better traffic conditions] for the NY Department of Transportation (NYDOT). Our data consisted of ten months of five minute measurements from a loop-detector buried 200ft from a busy intersection in Rochester, NY. In order to provide meaningful advice, I wanted to find the probability of congestion at various points in the day. This would help traffic engineers understand the relative risk of congestion so that they could take appropriate measures to mitigate these risks. In finding these probabilities, I implemented Bayes' method.
 
+```
 p(A|B) = (p(B|A)*p(A))/p(B)
+```
 
 **The Fundamental Traffic Diagram**
 
@@ -22,7 +24,9 @@ To understand how this relates to congestion, consult [this page](http://math.mi
 
 **Bayesian Analysis**
 
+```
 p(C|T) = (p(T|C)*p(C))/p(T)
+```
 
 When we use the above formula (C is Congestion, T is Time) we in effect find the probability of congestion at that point in time. I simply created a matrix of these probabilities for each day and plot them as shown below.
 
