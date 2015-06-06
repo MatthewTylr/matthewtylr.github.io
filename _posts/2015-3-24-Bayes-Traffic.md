@@ -18,7 +18,7 @@ p(A|B) = (p(B|A)*p(A))/p(B)
 
 Essential to our understanding of how to Bayes' method, we need to be able to classify what consititutes being "congested." To do this we simply consult the fundamental traffic diagram.
 
-![ftd]({{ site.baseurl }}/images/fundamental_traffic.png)
+![ftd]({{ site.baseurl }}/img/fundamental_traffic.png)
 
 To understand how this relates to congestion, consult [this page](http://math.mit.edu/projects/traffic/) from MIT who provide a good explanation. For us, our Critical Density is 42.8. Anything above this number we will consider "congested," and anything below is "not congested."
 
@@ -30,6 +30,6 @@ p(C|T) = (p(T|C)*p(C))/p(T)
 
 When we use the above formula (C is Congestion, T is Time) we in effect find the probability of congestion at that point in time. I simply created a matrix of these probabilities for each day and plot them as shown below.
 
-![pCTplot]({{ site.baseurl }}/images/pCTplot.png)
+![pCTplot]({{ site.baseurl }}/img/pCTplot.png)
 
 Here we can see that there is a very high probability of being caught in traffic between 5:00pm and 5:30pm. When assessing the zoning in this part of Rochester there is a couple of commercial lots north of this intersection. My presumption is that this congestion is a result of individuals leaving work.
