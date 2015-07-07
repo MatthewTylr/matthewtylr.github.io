@@ -44,7 +44,7 @@ Interestingly enough, a lot of the time I want to try and find the "next" Harry 
 16         Oscar        Chelsea 126  7.9
 ~~~
 
-Simply sorting the top 20 midfielders (by total points) shows us how the name game can be detrimental. Yaya Toure, despite being a huge asset for the 13/14 season, was largely disappointing. I feel bad for anyone who stuck with him on their team for too long. Players like Chadli, Downing, Sigurdsson, Ki, are all the types of players we need to keep an eye on in order to maximize the effectiveness of our benches during the FPL season.
+Simply sorting the top 20 midfielders (by total points) shows us how name recognition can be detrimental. Yaya Toure, despite being a huge asset during the 13/14 season, was largely disappointing. I feel bad for anyone who stuck with him on their team for too long. Players like Chadli, Downing, Sigurdsson, Ki, are all the types of players we need to keep an eye on in order to maximize the effectiveness of our benches during the FPL season.
 
 More to come later...
 -MT
