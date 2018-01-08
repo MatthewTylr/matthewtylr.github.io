@@ -1,50 +1,46 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/BlogPosting">
+    {% include head.html %}
+    <body class="has-push-menu">
+        {% include minutes-to-read.html %}
+        {% include svg-icons.html %}
+        {% include header.html %}
+        <section class="post">
 
-<!-- Post Header -->
-<header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <h1>{{ page.title }}</h1>
-                    {% if page.subtitle %}
-                    <h2 class="subheading">{{ page.subtitle }}</h2>
+            <article role="article" id="post" class="post-content" itemprop="articleBody">
+                <p itemprop="post-info" class="post-info">
+                    {% if page.date %}
+                        <svg id="date" class="icon-calendar"><use xlink:href="#icon-calendar"></use></svg>
+                        <time itemprop="datePublished" datetime="{{ page.date | date_to_xmlschema }}" class="date">
+                            {% include date.html date=page.date %}
+                        </time>
                     {% endif %}
-                    <span class="meta">Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} on {{ page.date | date: "%B %-d, %Y" }}</span>
+                    <svg id="clock" class="icon-clock"><use xlink:href="#icon-clock"></use></svg>
+                    <span>{{ minutesText }}</span>
+                </p>
+                <h1 class="post-title" itemprop="name">{{ page.title }}</h1>
+                <p itemprop="description" class="subtitle">{{ page.description }}</p>
+
+                {% if page.image %}
+                    <img src="{{ page.image }}" alt="Imagem de capa" class="post-cover">
+                {% endif %}
+
+                {{ content }}
+            </article>
+
+            <div class="progress-bar" data-minutes="{{ totalMinutes }}">
+                <span class="time-completed"></span>
+                <span class="time-remaining"></span>
+                <div class="bar">
+                    <span class="completed" style="width:0%;"></span>
+                    <span class="remaining" style="width:100%;"></span>
                 </div>
             </div>
-        </div>
-    </div>
-</header>
 
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-
-				{{ content }}
-
-                <hr>
-
-                <ul class="pager">
-                    {% if page.previous.url %}
-                    <li class="previous">
-                        <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">&larr; Previous Post</a>
-                    </li>
-                    {% endif %}
-                    {% if page.next.url %}
-                    <li class="next">
-                        <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">Next Post &rarr;</a>
-                    </li>
-                    {% endif %}
-                </ul>
-
-            </div>
-        </div>
-    </div>
-</article>
-
-<hr>
+            {% include share.html %}
+            {% include author.html %}
+            {% include comments.html %}
+            {% include footer.html %}
+        </section>
+    </body>
+</html>
