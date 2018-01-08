@@ -1,46 +1,47 @@
+---
+layout: compress
+---
+
 <!DOCTYPE html>
-<html lang="en" itemscope itemtype="http://schema.org/BlogPosting">
-    {% include head.html %}
-    <body class="has-push-menu">
-        {% include minutes-to-read.html %}
-        {% include svg-icons.html %}
-        {% include header.html %}
-        <section class="post">
+<html>
+{% include head.html %}
+<body id="posts" class="inner-post-page">
 
-            <article role="article" id="post" class="post-content" itemprop="articleBody">
-                <p itemprop="post-info" class="post-info">
-                    {% if page.date %}
-                        <svg id="date" class="icon-calendar"><use xlink:href="#icon-calendar"></use></svg>
-                        <time itemprop="datePublished" datetime="{{ page.date | date_to_xmlschema }}" class="date">
-                            {% include date.html date=page.date %}
-                        </time>
-                    {% endif %}
-                    <svg id="clock" class="icon-clock"><use xlink:href="#icon-clock"></use></svg>
-                    <span>{{ minutesText }}</span>
-                </p>
-                <h1 class="post-title" itemprop="name">{{ page.title }}</h1>
-                <p itemprop="description" class="subtitle">{{ page.description }}</p>
+    <div class="block-left">
+      <div class="content">
+        <a href="{{ site.url }}" class="logo"><img src="{{ site.url }}/images/{{ site.logo }}"></a>
+        <div class="post-title-section">
+          <div class="section-line">Posts <em>/</em></div>
+          <h1 class="section-title">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</h1>
+          <ul class="tags">
+            {% for tag in page.tags %}
+              <li><a href="{{ site.url }}/tags#{{ tag }}">{{ tag }}</a></li>
+              {% unless forloop.last %}
+              {% endunless %}
+            {% endfor %}
+          </ul>
+          <div class="section-line reverse"><a href="{{ site.url}}/posts">Back to posts</a> <em>/</em></div>
+        </div>
+      </div>
+    </div>
 
-                {% if page.image %}
-                    <img src="{{ page.image }}" alt="Imagem de capa" class="post-cover">
-                {% endif %}
-
-                {{ content }}
-            </article>
-
-            <div class="progress-bar" data-minutes="{{ totalMinutes }}">
-                <span class="time-completed"></span>
-                <span class="time-remaining"></span>
-                <div class="bar">
-                    <span class="completed" style="width:0%;"></span>
-                    <span class="remaining" style="width:100%;"></span>
-                </div>
-            </div>
-
-            {% include share.html %}
-            {% include author.html %}
-            {% include comments.html %}
-            {% include footer.html %}
-        </section>
-    </body>
+    <div class="block-right">
+      <div class="share-buttons">
+        {% include share.html %}
+      </div>
+      <a href="../posts.html" title="posts" class="posts-menu-icon"></a>
+      <a title="projects" class="projects-menu-icon">
+        <span></span>
+      </a>
+      <div class="inner-post content">
+        <div class="date-highlight">{% if page.date %}{{ page.date | date: '%d %b %Y' }}{% else %}&#x2756;{% endif %}</div>
+        {{ content }}
+        <br>
+        {% include share.html %}
+        {% include page-pagination.html %}
+      </div>
+    </div>
+    {% include scripts.html %}
+    {% include overlay.html %}
+</body>
 </html>
